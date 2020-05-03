@@ -1,0 +1,234 @@
+
+.hiddenElm {display:none;}
+
+
+.showElm {display:block;}
+
+.article{
+    background-color:aliceblue;
+    width: 100%;
+    padding: 0.5%;
+    border-color: #97907d;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+    margin:2% 0 2% 0;
+}
+
+html {
+    font-size: 100%;
+    font-family: "Tw Cen MT", Arial, Helvetica, sans-serif;
+    font-style: normal; /*normal, italic, oblique (obl.-similar to italic*/
+    font-weight: normal; /*normal, bold*/
+    text-align: justify; /*justify, left, right, center*/
+    color: black;
+}
+
+
+body > * {
+
+}
+
+body > header{
+    border-radius: 15px 15px 0 0;
+    background-color: #45a1ff;
+    color: #fff;
+    padding: 2vw 1vw 2vw 1vw;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+    display:block;
+    vertical-align: baseline;
+}
+
+body > footer{
+    font-size: 0.8rem;
+    padding-top: 1%;
+    border-radius: 0 0 15px 15px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: #45a1ff;
+    color: #fff;
+}
+
+button{    border-radius: 5px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    border-width: 0;
+    border-color: cornflowerblue;
+    background-color: aliceblue;
+    color: black;
+    border-width: 1px;
+    border-color: lightgray;
+    vertical-align: baseline;
+}
+
+main{
+    background-color: #fff;
+    padding: 5% 3% 10% 3%;
+    height: 100%;
+    width: 94%;
+    float: left;
+    min-width: 11rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
+}
+
+
+main footer{
+    margin-top: 0.5em;
+}
+
+li.aaa{
+    background-color:#45a1ff;
+    border-radius: 15%;
+    transition: background-color 2s,padding 1s;
+}
+li.aaa:hover{
+    background-color:darkslateblue;
+    padding: 2%;
+    border-radius: 15%;
+}
+a{
+    margin-right: 1.4%;
+}
+
+a:link, a:visited{
+    color: chocolate;
+    font-weight: 900;
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+a.upperMenu{
+    padding: 1% 1vw 1% 1vw;
+    color: #eeeeed;
+    font-weight: bolder;
+    font-size: larger;
+    text-decoration:none;
+}
+
+
+body {
+    margin: 3% 5% 3% 5%;
+    border-collapse: collapse;
+    background-image:url("../fig/background.jpg");
+    background-repeat: repeat;
+    background-color: bisque;
+    font-family: "Yu Gothic UI Light", sans-serif;
+    border-style: none;
+    vertical-align: top;
+}
+
+form#opnFrm {
+    background-color:floralwhite;
+    width: 100%;
+    padding: 0.5%;
+    border-color: #97907d;
+    border-radius: 15px 6px;
+    border-top-width: 2px;
+    border-top-style: solid;
+    border-left-width: 2px;
+    border-left-style: solid;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-right-width: 2px;
+    border-right-style: solid;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+}
+
+p{
+    font-family: "Arial",sans-serif;
+}
+
+.text{
+    margin-left:8%;
+    margin-right:8% ;
+}
+
+.center{
+    text-align: center;
+}
+
+
+label{
+    vertical-align: top;
+    display: inline-block; /*instead of inline (default)*/
+    min-width: 20%;
+}
+
+#upperLabel{
+    vertical-align: top;
+    display: inline; /*instead of inline (default)*/
+    min-width: auto;
+}
+
+input#klElm{width: 25%}
+
+
+
+span.resizeable > input {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+
+
+:required {
+    border: 2px solid black;
+}
+
+:optional {
+    border: 1px solid lightgray;
+}
+
+input:invalid, textarea:invalid{
+    border-color: red;
+    /*color: red;*/
+}
+
+:out-of-range{
+    color: red;
+}
+
+input:valid{
+    color: darkgreen;
+}
+
+
+
+@media not all and (min-width: 960px) and (max-resolution: 1.8dppx) {
+
+    body.body{margin: 5%; width: 70%;}
+
+.panels{
+    display: inline;
+}
+    .main{
+        width: 96%;
+    }
+
+    textarea{width: 98%}
+
+    footer{
+        width: 100%;
+    }
+
+    .upperMenu{
+        padding-bottom:10%;
+        border-radius:15px 15px 15px 15px;
+    }
+
+    aside{
+        width: 98.5%;
+        border-radius:15px 15px 0 0;
+        padding-top: 0;
+        margin-top: 5%;
+
+    }
+
+.panels {display: inline}
+}

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="author" content="Stefan Korecko" />
+
+    <!--<meta name="google-signin-client_id" content="739447374919-iij0b3qqlnaa4eidj70m2k543n4j3675.apps.googleusercontent.com">-->
+    <meta
+      name="google-signin-client_id"
+      content="88621123759-ehi3hqfocnuel4pq990buscoovt7glgt.apps.googleusercontent.com"
+    />
+
+    <link rel="stylesheet" href="css/Style1.css" />
+    <link rel="stylesheet" href="css/Style1.css" media="screen" />
+
+    <title>Nehnutelnosti</title>
+  </head>
+
+  <body id="Home">
+    <header>
+      <aside id="googleSignIn" style="float: right">
+        <div id="SignInButton"></div>
+        <div id="SignedIn">
+          Ste prihlÃ¡senÃ½ ako
+          <b
+            ><span id="userName"></span>
+            <button onclick="signOut()">OdhlÃ¡siÅ¥ sa</button></b
+          >
+        </div>
+      </aside>
+      <h1>Miesto kde najdete vÅ¡etko o svete nehnutelnostÃ­</h1>
+
+      <!--
+    <div class="menu">
+        <button id="menuTitle" onclick="displayOrHideMenu()">Menu</button>
+    -->
+      <nav id="menuIts">
+        <ul style="display: inline">
+          <li class="aaa" style="display: inline">
+            <a class="upperMenu" href="#welcome">Vitajte!</a>
+          </li>
+          <li class="aaa" style="display: inline">
+            <a class="upperMenu" href="#articles/0/200">ÄlÃ¡nky</a>
+          </li>
+          <li class="aaa" style="display: inline">
+            <a class="upperMenu" href="#opinions">VaÅ¡e nÃ¡zory</a>
+          </li>
+          <li class="aaa" style="display: inline">
+            <a class="upperMenu" href="#addOpinion">PridaÅ¥ nÃ¡zor</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- </div> -->
+    </header>
+
+    <main id="router-view"></main>
+
+    <footer>
+      <p>Â© 2020 Vladimir Duch</p>
+      <small class="bottom1"
+        ><a
+          style="text-decoration: none; color: lavenderblush"
+          href="mailto:duchvlado@gmail.com?Subject=Reakcia%20na%20nas%20blog%20-%20Nehnutelnosti"
+          >email</a
+        ></small
+      >
+    </footer>
+
+    <!--Templates for html, dynamically inserted by the router -->
+
+    <script id="template-welcome" type="text/template">
+      <article>
+          <h2>Vitajte!</h2>
+
+          <p>
+              Hladate si byvanie na cely zivot lacno a na tych najluxusnejsich miestach? Tu najdete vsetko co potrebujete vediet pred kupou!
+          </p>
+          <br>
+          <h3>Projekty domov</h3>
+          <p>Pripravili sme pre VÃ¡s vÅ¡eobecnÃ½ prehÄ¾ad vÅ¡etkÃ½ch projektov rodinnÃ½ch domov, ktorÃ© sÃº navrhnutÃ© ako domy s takmer nulovou
+              potrebou energie a spÄºÅajÃº najnovÅ¡ie energetickÃ© poÅ¾iadavky. Na naÅ¡ej strÃ¡nke pre VÃ¡s pravidelne pripravujeme novÃ© projekty rodinnÃ½ch
+              domov rÃ´znych tvarov a veÄ¾kostnÃ½ch kategÃ³riÃ­. VÅ¡etky projekty z naÅ¡ej ponuky je moÅ¾nÃ© zrealizovaÅ¥ ako montovanÃº stavbu - drevodom. Najviac
+              rozÅ¡Ã­renou kategÃ³riou sÃº prÃ­zemnÃ© rodinnÃ© domy, typ BUNGALOV. Tieto rodinnÃ© domy nÃ¡jdete vo vÅ¡etkÃ½ch veÄ¾kostnÃ½ch a tvarovÃ½ch alternatÃ­vach.
+              Uspokojujeme nÃ¡roky vÃ¤ÄÅ¡iny zÃ¡kaznÃ­kov, ktorÃ­ sa rozhodli postaviÅ¥ svoj vysnÃ­vanÃ½ rodinnÃ½ dom. V poslednom Äase je mnoho zÃ¡ujemcov o domy s
+              plochou strechou, ako naprÃ­klad ARKADA. Tieto mÃ´Å¾u byÅ¥ prÃ­zemnÃ©, alebo poschodovÃ©. PonÃºkame ich vo vÅ¡etkÃ½ch veÄ¾kostnÃ½ch kategÃ³riÃ¡ch. RodinnÃ½
+              dom si taktieÅ¾ mÃ´Å¾ete vyberaÅ¥ podÄ¾a poÄtu garÃ¡Å¾Ã­. SÃº to rodinnÃ© domy s garÃ¡Å¾ou, alebo dvojgarÃ¡Å¾ou, domy na Ãºzky pozemok, bungalovy, modernÃ©
+              domy, lacnÃ© domy, ktorÃ½ch projekty si mÃ´Å¾ete vyfiltrovaÅ¥ na naÅ¡ej strÃ¡nke. DÃºfame, Å¾e si na naÅ¡ej strÃ¡nke vyberiete prÃ¡ve ten svoj vysnÃ­vanÃ½
+              rodinnÃ½ dom podÄ¾a VaÅ¡ich poÅ¾iadaviek a predstÃ¡v.</p>
+      </article>
+    </script>
+
+    <!-- ____________________________________________________ -->
+
+    <script id="template-main" type="text/template">
+      <p>
+          Strana {{currPageShow}} z {{pageCountShow}}.
+      </p>
+      <nav>
+          {{#prevPage1}}
+          <a href="#articles/0/{{pageCount}}"><<< PrvÃ¡ strana<<</a>
+          {{/prevPage1}}
+          {{#prevPage1}}
+          <a href="#articles/{{prevPage}}/{{pageCount}}"><< PredchÃ¡dzajÃºca strana</a>
+          {{/prevPage1}}
+
+          {{#nextPage}}
+          <a href="#articles/{{nextPage}}/{{pageCount}}">NasledujÃºca strana >></a>
+          {{/nextPage}}
+          {{#nextPage}}
+          <a href="#articles/{{pageCount}}/{{pageCount}}">>>PoslednÃ¡ strana >>></a>
+          {{/nextPage}}
+      </nav>
+    </script>
+
+    <script id="template-articles" type="text/template">
+          {{#.}}
+          <article class="article">
+              <h2><a href="{{detailLink}}">{{title}}</a></h2>
+              <div>
+                  {{contentPrev}}
+              </div>
+              <h5> Comments </h5>
+              <ul>
+                  {{#comments}}
+                  <li>{{{text}}}</li>
+                  {{/comments}}
+              </ul>
+          </article>
+          {{/.}}
+
+      <br><br>
+
+          <div id="main"></div>
+          <br>
+      <footer  class="menuLink"><a href="#Home">SpÃ¤Å¥ na menu</a></footer>
+    </script>
+
+    <script id="template-articles-error" type="text/template">
+
+      <article>
+          <h2>Articles acquisition failed</h2>
+          <p>
+              {{errMessage}}
+          </p>
+      </article>
+      <footer  class="menuLink"><a href="#Home">SpÃ¤Å¥ na menu</a></footer>
+    </script>
+
+    <!-- ____________________________________________________ -->
+
+    <script id="template-opinions" type="text/template">
+      <article  id="artOpinions">
+          <h2>VaÅ¡e nÃ¡zory:</h2>
+          {{#.}}
+          <section>
+              <h2>{{name}}</h2><p>email:{{email}}, <i>{{createdDate}}</i></p>
+              {{comment}}
+              <br><br> <b>Key world:</b> {{key}}<br>
+              <b>Hodnotenie:</b> {{rank}}<br>
+              <b>  - {{willReturn}}</b>
+              <br><br><br>
+          </section>
+          {{/.}}
+          {{^.}}
+          <section>
+              Å¾iadne nÃ¡zory
+          </section>
+          {{/.}}
+          <footer  class="menuLink"><a href="#Home">SpÃ¤Å¥ na menu</a></footer>
+      </article>
+    </script>
+
+    <!-- ____________________________________________________ -->
+
+    <script id="template-addOpinion" type="text/template">
+
+      <article  id="artOpnFrm">
+          <h2>Your Opinion</h2>
+          <p>
+              Please, use the form below to state your opinion about this page.
+          </p>
+          <form id="opnFrm" onsubmit="return processOpnFrmData(event)">
+              <label for="nameElm">Tvoje meno:</label>
+              <input type="text" name="author" value="" id="nameElm" size="20" maxlength="50" placeholder="NapÃ­Å¡ svoje meno" required/>
+              <br><br>
+
+
+
+              <label for="emlElm">Email:</label>
+              <input type="email" id="emlElm" name="emailAddr" required placeholder="NapÃ­Å¡ svoj email"/>
+
+              <br><br>
+
+              <label class="long" for="klElm">KÄ¾ÃºÄovÃ© slovo:</label>
+              <input type="text" name="key" id="klElm" size="15" list="myWeb"
+                     title="Min. 2 znaky, max. 15 znakov." maxlength="10"
+                     minlength="2"
+                     pattern="[a-zA-Z0-9]+$"
+                     spellcheck="false"
+                     autocomplete="on"
+                     placeholder="napr. (e.g.)  Dom"/>
+
+              <datalist id="myWeb">
+                  <option value="Dom">
+                  <option value="Byt">
+                  <option value="Pozemok">
+                  <option value="Budova">
+                  <option value="Verejne">
+                  <option value="Stavby">
+              </datalist>
+
+              <br><br>
+
+              <label for="opnElm">Tvoj nÃ¡zor:</label>
+              <textarea name="comment" id="opnElm" cols="50" rows="3" placeholder="Express your opinion here" required></textarea>
+
+              <br><br>
+
+              <label >Hodnotenie:</label>
+              <input type="radio" id="rank2Elm" name="rank"  value="2"  checked />
+              <label for="rank2Elm">dobre</label>
+              <input type="radio" id="rank1Elm" name="rank"  value="1" />
+              <label for="rank1Elm">zle</label>
+              <input type="radio" id="rank0Elm" name="rank"  value="0" />
+              <label for="rank0Elm">neutrÃ¡nlne.</label>
+
+              <br><br>
+
+              <input type="checkbox" id="willReturnElm" />
+              <label for="willReturnElm">Dozvedel som sa Äo som potreboval?</label>
+              <br><br>
+              <button type="submit">Send</button>
+          </form>
+
+
+          <footer  class="menuLink"><a href="#Home">SpÃ¤Å¥ na menu</a></footer>
+      </article>
+    </script>
+
+    <script id="template-article" type="text/template">
+      <article>
+          <h3>{{title}}</h3>
+          <p>
+              by {{author}}
+          </p>
+          {{#imageLink}}
+          <figure>
+              <img src="{{imageLink}}" alt="article figure" />
+          </figure>
+          {{/imageLink}}
+          <div>{{{content}}}</div>
+          <p>
+              Keywords:
+              {{tags}}
+          </p>
+      </article>
+
+      <footer>
+          <a href="{{backLink}}" class="linkAsButton"><< SpÃ¤Å¥</a>
+          <a href="{{editLink}}" class="linkAsButton">UpraviÅ¥</a>
+          <a href="{{deleteLink}}" class="linkAsButton">VymazaÅ¥</a>
+          <a href="#menuTitle" class="linkAsButton">SpÃ¤Å¥ na menu</a>
+      </footer>
+
+
+      <h5> Comments </h5>
+      {{#.}}
+
+          <ul>
+              {{#comments}}
+              <article class="article">
+                  <li>{{{text}}}</li>
+              </article>
+              {{/comments}}
+          </ul>
+
+      {{/.}}
+    </script>
+
+    <script id="template-article-form" type="text/template">
+      <article>
+
+          <h2>{{formTitle}}</h2>
+          <br><br>
+
+          <form id="articleForm" onsubmit="return {{formSubmitCall}}">
+              <label for="author">Author:</label>
+              <input type="text" name="author" id="author" value="{{author}}" size="50" title="Article author, max. length 100 characters." maxlength="100" placeholder="e.g. JÃ¡n Trieska" />
+              <br>
+              <label for="title">Title:</label>
+              <input type="text" name="title" id="title" value="{{title}}" size="50"  maxlength="100" pattern="\S[\S\s]*" required title="Article title, mandatory item, max. length: 100 characters, the first character must not be a space." placeholder="e.g. My story." />
+              <br>
+              <label for="imageLink">Image (url):</label>
+              <input type="url" name="imageLink" id="imageLink" value="{{imageLink}}" size="50" title="Image URL, max. length 100 characters." maxlength="100"/>
+              <br>
+              <label></label><button type="button" id="btShowFileUpload" onclick="showFileUpload()">Upload image</button>
+
+              <fieldset class="added hiddenElm" id="fsetFileUpload">
+                  <legend>Image Upload</legend>
+                  <input type="file" id="flElm" name="file" accept="image/jpeg, image/png"/>
+                  <br />
+                  <button type="button" id="btFileUpload" onclick="uploadImg('{{urlBase}}')">Send image to server</button>
+                  <button type="button" id="btCancelFileUpload" onclick="cancelFileUpload()">Cancel uploading</button>
+              </fieldset>
+
+
+              <br>
+              <label for="content">Article content:</label>
+              <textarea
+                      name="content" id="content" spellcheck="true" lang="sk"
+                      cols="50" rows="20" required
+                      title="Article content, mandatory item, can be plain text or in HTML.">{{content}}</textarea>
+              <br>
+              <label for="tags">Keywords:</label>
+              <input  type="text" name="tags" id="tags" value="{{tags}}" size="50"
+                      title="Keyword list, comma separated." placeholder="e.g. village, drama" />
+
+              <br>
+              <br>
+              <button type="reset">
+                  Reset Form
+              </button>
+              <button type="submit">
+                  {{submitBtTitle}}
+              </button>
+
+          </form>
+
+      </article>
+
+      <footer>
+          <a href="{{backLink}}" class="linkAsButton"><< SpÃ¤Å¥</a>
+          <a href="#menuTitle" class="linkAsButton">SpÃ¤Å¥ na menu</a>
+      </footer>
+    </script>
+
+    <!-- ____________________________________________________ -->
+
+    <!--
+<script src="js/mustache.min.js"></script>
+-->
+    <script src="js/mainMenu.js"></script>
+
+    <script src="js/addOpinion.js"></script>
+
+    <script src="js/handleArticleForms.js"></script>
+
+    <script type="module" src="js/routerInit.js"></script>
+
+    <script src="js/routes.js"></script>
+
+    <script src="js/GoogleAccessBetter.js"></script>
+
+    <script
+      src="https://apis.google.com/js/platform.js?onload=startGSingIn"
+      async
+      defer
+    ></script>
+  </body>
+</html>
